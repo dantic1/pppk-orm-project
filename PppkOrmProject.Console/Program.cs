@@ -1,7 +1,14 @@
-﻿using PppkOrmProject.Data;
+﻿using PppkOrmProject.Console.Seed;
+using PppkOrmProject.Data;
 
 using var context = new AppDbContext();
 
-var canConnect = context.Database.CanConnect();
+if (!context.Database.CanConnect())
+{
+    Console.WriteLine("Can't connect to database");
+    return;
+}
 
-Console.WriteLine($"DbConnection {canConnect}");
+DbSeed.SeedDoctors(context);
+Console.WriteLine("Seeded completed");
+
