@@ -1,4 +1,5 @@
-﻿using PppkOrmProject.Console.Seed;
+﻿using PppkOrmProject.Console.Menus;
+using PppkOrmProject.Console.Seed;
 using PppkOrmProject.Data;
 
 using var context = new AppDbContext();
@@ -11,4 +12,6 @@ if (!context.Database.CanConnect())
 
 DbSeed.SeedDoctors(context);
 Console.WriteLine("Seeded completed");
+
+MainMenu.Show(context);
 
