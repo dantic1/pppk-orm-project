@@ -5,8 +5,14 @@ namespace PppkOrmProject.Data;
 
 public class AppDbContext : DbContext
 {
-    AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+    private string CONNECTION_STRING = "Host=localhost;Port=5432;Database=hospital;Username=doctor;Password=password";
+    
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
+        optionsBuilder
+            .UseNpgsql(CONNECTION_STRING)
+            .EnableSensitiveDataLogging()
+            .LogTo(Console.WriteLine);
     }
     
     public DbSet<Patient> Patients => Set<Patient>();
