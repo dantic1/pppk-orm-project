@@ -16,6 +16,9 @@ public class Patient
     public string LastName { get; set; } = String.Empty;
     
     [Required]
+    public DateOnly BirthDate { get; set; }
+    
+    [Required]
     public Gender Gender { get; set; }
     
     [Required]
