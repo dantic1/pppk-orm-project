@@ -9,10 +9,14 @@ public class AppDbContext : DbContext
     
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
+        // optionsBuilder
+        //     .UseNpgsql(CONNECTION_STRING)
+        //     .EnableSensitiveDataLogging()
+        //     .LogTo(Console.WriteLine);
+
+
         optionsBuilder
-            .UseNpgsql(CONNECTION_STRING)
-            .EnableSensitiveDataLogging()
-            .LogTo(Console.WriteLine);
+            .UseNpgsql(CONNECTION_STRING);
     }
     
     public DbSet<Patient> Patients => Set<Patient>();
