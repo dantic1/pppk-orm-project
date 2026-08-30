@@ -14,7 +14,7 @@ public class MedicalHistory
     public DateOnly StartDate { get; set; }
     
     public DateOnly? EndDate { get; set; }
-
+    
     public Patient Patient { get; set; } = null!;
-    public required Disease Disease { get; set; } // isto
+    public Disease Disease { get; set; } = null!;
 }

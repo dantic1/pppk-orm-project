@@ -23,7 +23,7 @@ public class Prescription
     
     public DateOnly? EndDate { get; set; }
     
-    public required Patient Patient { get; set; }
-    public required  Medication Medication{ get; set; }
+    public Patient Patient { get; set; } = null!;
+    public Medication Medication { get; set; } = null!;
     public MedicalHistory? MedicalHistory { get; set; }
 }

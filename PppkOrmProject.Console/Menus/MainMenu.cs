@@ -1,3 +1,4 @@
+using System.Linq;
 using PppkOrmProject.Data;
 
 namespace PppkOrmProject.Console.Menus;
@@ -27,17 +28,15 @@ public static class MainMenu
 
             switch (input)
             {
-                case "1":
-                    PatientsMenu.Show(context);
-                    break;
-                case "5":
-                    ListAllDoctors(context);
-                    break;
-                case "0":
-                    return;
-                default:
-                    System.Console.WriteLine("Invalid input");
-                    break;
+                case "1": PatientsMenu.Show(context); break;
+                case "2": DiseaseMenu.Show(context); break;
+                case "3": MedicationMenu.Show(context); break;
+                case "4": MedicalHistoryMenu.Show(context); break;
+                case "5": PrescriptionMenu.Show(context); break;
+                case "6": ExaminationMenu.Show(context); break;
+                case "7": ListAllDoctors(context); break;
+                case "0": return;
+                default: System.Console.WriteLine("Invalid input"); break;
             }
         }
     }

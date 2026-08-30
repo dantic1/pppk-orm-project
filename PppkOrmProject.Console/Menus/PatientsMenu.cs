@@ -1,9 +1,6 @@
-using System.Globalization;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Migrations.Operations;
 using PppkOrmProject.Data;
 using PppkOrmProject.Data.Enums;
-using PppkOrmProject.Data.Migrations;
 using PppkOrmProject.Data.Models;
 
 namespace PppkOrmProject.Console.Menus;
@@ -126,9 +123,6 @@ public class PatientsMenu
 
     private static void Add(AppDbContext context)
     {
-        System.Console.WriteLine();
-        System.Console.WriteLine("--- Add new patient ---");
-
         System.Console.WriteLine();
         System.Console.WriteLine("--- Add new patient ---");
 

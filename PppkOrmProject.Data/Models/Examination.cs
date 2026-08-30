@@ -16,6 +16,6 @@ public class Examination
     [Required]
     public DateTime ScheduledAt { get; set; }
     
-    public required Patient Patient { get; set; }
-    public required Doctor Doctor { get; set; }
+    public Patient Patient { get; set; } = null!;
+    public Doctor Doctor { get; set; } = null!;
 }
