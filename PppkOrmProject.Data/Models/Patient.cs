@@ -33,7 +33,7 @@ public class Patient
     [MaxLength(150)]
     public string PermanentAddress { get; set; } = String.Empty;
     
-    public List<MedicalHistory> MedicalHistories { get; set; } = new();
+    public virtual List<MedicalHistory> MedicalHistories { get; set; } = new();
     public List<Prescription> Prescriptions { get; set; } = new();
     public List<Examination> Examinations { get; set; } = new();
     

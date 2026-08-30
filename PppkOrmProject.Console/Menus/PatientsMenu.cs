@@ -17,6 +17,9 @@ public class PatientsMenu
             System.Console.WriteLine("2. Add");
             System.Console.WriteLine("3. Update");
             System.Console.WriteLine("4. Delete");
+            System.Console.WriteLine("5. List with history count (EAGER)");
+            System.Console.WriteLine("6. List with history count (LAZY)");
+            System.Console.WriteLine("7. List with history count (EXPLICIT)");
             System.Console.WriteLine("0. Back");
             System.Console.Write("Choice: ");
 
@@ -36,12 +39,61 @@ public class PatientsMenu
                 case "4":
                     Delete(context);
                     break;
+                case "5": 
+                    ListWithHistoryCountEager(context); 
+                    break;
+                case "6": 
+                    ListWithHistoryCountLazy(context); 
+                    break;
+                case "7": 
+                    ListWithHistoryCountExplicit(context); 
+                    break;
                 case "0":
                     return;
                 default:
                     System.Console.WriteLine("Invalid input");
                     break;
             }
+        }
+    }
+
+    private static void ListWithHistoryCountEager(AppDbContext context)
+    {
+        var patient = context.Patients
+            .Include(p => p.MedicalHistories)
+            .ToList();
+
+        System.Console.WriteLine("");
+        
+        foreach(var p in patient)
+        {
+            System.Console.WriteLine($"{p.Id} - {p.FirstName} {p.LastName} | histories: {p.MedicalHistories.Count}");
+        }
+
+    }
+
+    private static void ListWithHistoryCountLazy(AppDbContext context)
+    {
+        var patients = context.Patients.ToList();
+
+        System.Console.WriteLine();
+
+        foreach (var p in patients)
+        {
+            System.Console.WriteLine($"{p.Id} - {p.FirstName} {p.LastName} | histories: {p.MedicalHistories.Count}");
+        }
+    }
+
+    private static void ListWithHistoryCountExplicit(AppDbContext context)
+    {
+        var patients = context.Patients.ToList();
+        
+        System.Console.WriteLine();
+
+        foreach (var p in patients)
+        {
+            context.Entry(p).Collection(m => m.MedicalHistories).Load();
+            System.Console.WriteLine($"{p.Id} - {p.FirstName} {p.LastName} | histories: {p.MedicalHistories.Count}");
         }
     }
 
