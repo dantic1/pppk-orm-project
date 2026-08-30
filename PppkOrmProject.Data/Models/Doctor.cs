@@ -16,5 +16,5 @@ public class Doctor
     
     [Required]
     [MaxLength(100)]
-    public string Specialization { get; set; } = String.Empty;
+    public virtual  string Specialization { get; set; } = String.Empty;
 }

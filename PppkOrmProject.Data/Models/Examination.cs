@@ -16,6 +16,9 @@ public class Examination
     [Required]
     public DateTime ScheduledAt { get; set; }
     
-    public Patient Patient { get; set; } = null!;
-    public Doctor Doctor { get; set; } = null!;
+    [MaxLength(500)]
+    public string? Notes {get; set;}
+    
+    public virtual Patient Patient { get; set; } = null!;
+    public virtual Doctor Doctor { get; set; } = null!;
 }

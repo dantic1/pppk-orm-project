@@ -15,6 +15,6 @@ public class MedicalHistory
     
     public DateOnly? EndDate { get; set; }
     
-    public Patient Patient { get; set; } = null!;
-    public Disease Disease { get; set; } = null!;
+    public virtual Patient Patient { get; set; } = null!;
+    public virtual Disease Disease { get; set; } = null!;
 }

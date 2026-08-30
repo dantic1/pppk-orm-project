@@ -34,7 +34,7 @@ public class Patient
     public string PermanentAddress { get; set; } = String.Empty;
     
     public virtual List<MedicalHistory> MedicalHistories { get; set; } = new();
-    public List<Prescription> Prescriptions { get; set; } = new();
-    public List<Examination> Examinations { get; set; } = new();
+    public virtual List<Prescription> Prescriptions { get; set; } = new();
+    public virtual List<Examination> Examinations { get; set; } = new();
     
 }
