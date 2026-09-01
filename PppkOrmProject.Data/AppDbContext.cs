@@ -17,9 +17,7 @@ public class AppDbContext : DbContext
 
         optionsBuilder
             .UseNpgsql(CONNECTION_STRING)
-            .UseLazyLoadingProxies()
-            .EnableSensitiveDataLogging()
-            .LogTo(Console.WriteLine);
+            .UseLazyLoadingProxies();
     }
     
     public DbSet<Patient> Patients => Set<Patient>();
