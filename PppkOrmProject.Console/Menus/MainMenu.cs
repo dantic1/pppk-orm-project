@@ -17,10 +17,12 @@ public static class MainMenu
                                      """);
 
             System.Console.WriteLine("1. Patients");
-            System.Console.WriteLine("2. Medical History");
-            System.Console.WriteLine("3. Examinations");
-            System.Console.WriteLine("4. Prescriptions");
-            System.Console.WriteLine("5. List all doctors");
+            System.Console.WriteLine("2. Diseases");
+            System.Console.WriteLine("3. Medications");
+            System.Console.WriteLine("4. MedicalHistory");
+            System.Console.WriteLine("5. Prescriptions");
+            System.Console.WriteLine("6. Examinations");
+            System.Console.WriteLine("7. List all doctors");
             System.Console.WriteLine("0. Exit");
             System.Console.Write("Choice: ");
             
